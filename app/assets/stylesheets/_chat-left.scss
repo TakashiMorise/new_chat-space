@@ -1,0 +1,52 @@
+//画面左側部
+.chat-left {
+    height: 100%;
+    width: 300px;
+    color: $white;
+    background-color: $left-side;
+    float: left;
+    &__user-info {
+        box-sizing: border-box;
+        height: 95px;
+        width: 100%;
+        background-color: $left-userInfo;
+        padding: 0 20px;
+        &__container {
+            padding: 35px 0 25px;
+            &__name {
+                display: inline-block;
+                font-size: 16px;
+                font-style: bold;
+                float: left;
+            }
+            &__edit-account {
+                display: inline-block;
+                font-size: 16px;
+                float:right;
+            }
+            &__create-group {
+                display: inline-block;
+                font-size: 16px;
+                float: right;
+                margin-left: 10px;
+            }
+        }
+    }
+    &__group-info {
+        height: calc( 100vh - 95px );
+        width: 100%;
+        overflow: auto;
+        &__container {
+            box-sizing: border-box;
+            padding: 20px 20px 0;
+            &__name {
+                font-size: 15px;
+                padding-bottom: 5px;
+            }
+            &__text {
+                font-size: 11px;
+                padding-bottom: 40px;
+            }
+        }
+    }
+}
