@@ -1,0 +1,14 @@
+//ネストに入れなかったCSSを記載
+a {
+    text-decoration: none;
+    color: $white;
+}
+.wrapper {
+      height: 100vh;
+      width: 100vw;
+}
+.clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+}
