@@ -2,9 +2,9 @@
   .chat-left__user-info__container
     .chat-left__user-info__container__name
       /ログインユーザー名
-      TAC
+      = current_user.name
     /pathは決まり次第変更のこと
-    = link_to root_path, class: "chat-left__user-info__container__edit-account" do
+    = link_to edit_user_path(current_user), class: "chat-left__user-info__container__edit-account" do
       /font-awesome使用
       = fa_icon 'cog'
     /pathは決まり次第変更のこと

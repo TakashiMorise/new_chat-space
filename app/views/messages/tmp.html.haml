@@ -1,0 +1,44 @@
+\.chat-main__footer
+\%form.chat-main__footer__form
+\%input.chat-main__footer__form__textbox{:name =&gt; "text", :placeholder =&gt; "type a message", :type =&gt; "text"}/
+\%label.chat-main__footer__form__label
+\= fa_icon 'image', class: "fa-position"
+\%input.hidden{:name =&gt; "datafile", :type =&gt; "file"}/
+\%input.chat-main__footer__form__submit{:type =&gt; "submit", :value =&gt; "Send"}/
+
+\= form_for [@group, @message] do |f|
+\= f.text_field :content, class: 'chat-main__footer__form__textbox', placeholder: 'type a message'
+\= f.label :image, class: 'chat-main__footer__form__label' do
+\= fa_icon 'image', class: 'fa-position'
+\= f.file_field :image, class: 'hidden'
+\= f.submit 'Send', class: 'chat-main__footer__form__submit'
+
+\/ここまでが１メッセージ分　以降は適当にコピペしているだけ
+\/ .chat-main__bulletin-board__messages__message
+\/   .chat-main__bulletin-board__messages__message-name
+\/     Yuta
+\/   .chat-main__bulletin-board__messages__message-date
+\/     20018/12/24 01:00:00
+\/   .chat-main__bulletin-board__messages__message-text
+\/     ケーキ食ってます！！
+\/ .chat-main__bulletin-board__messages__message
+\/   .chat-main__bulletin-board__messages__message-name
+\/     Tac
+\/   .chat-main__bulletin-board__messages__message-date
+\/     20018/12/25 13:54:00
+\/   .chat-main__bulletin-board__messages__message-text
+\/     本日は晴天なれど波高し。
+\/     %br/
+\/     為せば成る。
+\/     %br/
+\/     為さねばならぬ、何事も。
+\/     %br/
+\/     成らぬは人の為さぬなりけり。
+\/     %br/
+\/ .chat-main__bulletin-board__messages__message
+\/   .chat-main__bulletin-board__messages__message-name
+\/     Tac
+\/   .chat-main__bulletin-board__messages__message-date
+\/     20019/03/22 08:00:00
+\/   .chat-main__bulletin-board__messages__message-text
+\/     卒業おめでとう！

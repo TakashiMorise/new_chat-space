@@ -4,7 +4,7 @@
     /画面左側の表示
     %section.chat-left
       /左側のチャット部分は部分テンプレート化
-      = render partial: "messages/group-info"
+      = render partial: "shared/group-info"
     /右側のメインチャット画面
     %section.chat-main
       .chat-main__header
@@ -20,7 +20,7 @@
       .chat-main__bulletin-board
         .chat-main__bulletin-board__messages
           /チャット部分は部分テンプレート化
-          = render partial: 'messages/message'
+          = render partial: 'shared/message'
         /以下テキストや画像の投稿部分 collection: @messages
       .chat-main__footer
         %form.chat-main__footer__form
