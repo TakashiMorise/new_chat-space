@@ -1,0 +1,39 @@
+
+/画面左側の表示
+%section.chat-left
+  .chat-left__user-info
+    .chat-left__user-info__container
+      .chat-left__user-info__container__name
+        /ログインユーザー名
+        = current_user.name
+      /pathは決まり次第変更のこと
+      = link_to edit_user_path(current_user), class: "chat-left__user-info__container__edit-account" do
+        /font-awesome使用
+        = fa_icon 'cog'
+      /pathは決まり次第変更のこと
+      = link_to new_group_path, class: "chat-left__user-info__container__create-group" do
+        /font-awesome使用
+        = fa_icon 'edit'
+  .chat-left__group-info
+    /画面左側のチャット部分
+    .chat-left__group-info__container
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .chat-left__group-info__container__name
+            = group.name
+          .chat-left__group-info__container__text
+            = group.show_last_message
+
+/ここまでが１メッセージ分　以降は適当にコピペ
+/ .chat-left__group-info__container
+/   %a{:href => "#"}
+/     .chat-left__group-info__container__name
+/       Aquq
+/     .chat-left__group-info__container__text
+/       一番盛り上がるのはNBLの最終戦ですよ〜
+/ .chat-left__group-info__container
+/   %a{:href => "#"}
+/     .chat-left__group-info__container__name
+/       yuta
+/     .chat-left__group-info__container__text
+/       ブレイクダンス！ブレイクダンス！ブレイクダンス！！ヤァ〜
