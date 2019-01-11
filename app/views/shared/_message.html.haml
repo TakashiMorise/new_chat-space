@@ -1,9 +1,11 @@
 /メイン画面のチャット部分
 .chat-main__bulletin-board__messages__message
   .chat-main__bulletin-board__messages__message-name
-    TAC
+    = message.user.name
   .chat-main__bulletin-board__messages__message-date
-    20019-01-10
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
   .chat-main__bulletin-board__messages__message-text
-    イケイケだぜ！
+    - if message.content.present?
+      = message.content
+    =image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
