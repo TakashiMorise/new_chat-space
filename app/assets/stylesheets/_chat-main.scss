@@ -39,7 +39,7 @@
     &__bulletin-board {
         height: calc( 100% - (95px + 90px));
         width: 100%;
-        overflow: auto;
+        overflow: scroll;
         &__messages {
             padding:46px 40px 0;
             &__message {
