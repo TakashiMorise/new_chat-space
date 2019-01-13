@@ -36,7 +36,6 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main__bulletin-board__messages').append(html)
       $('#new_message')[0].reset();
-      console.log("森瀬隆司")
       $('.chat-main__bulletin-board').animate({scrollTop: $('.chat-main__bulletin-board')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
