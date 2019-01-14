@@ -29,7 +29,6 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      console.log('森瀬隆司')
      $('#chat-group-users').empty();
      if (data.length !== 0) {
       data.forEach(function(user){
