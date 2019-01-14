@@ -12,7 +12,7 @@ $(function(){
                    </div>`
     return display;
   }
-  function removeUser(userId, name) {
+  function addUser(userId, name) {
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
                   <input name='group[user_ids][]' type='hidden' value=${userId}>
                   <p class='chat-group-user__name'>${name}</p>
@@ -48,10 +48,8 @@ $(function(){
   $('#chat-group-users').on('click', '.user-search-add', function(){
     var userId = $(this).attr('data-user-id');
     var name = $(this).attr('data-user-name');
-    console.log(userId);
-    console.log(name);
     $(this).parent().remove();
-    var html = removeUser(userId, name);
+    var html = addUser(userId, name);
     $('#chat-group-users').append(html);
   });
   $('#chat-group-users').on('click', '.user-search-remove', function(){
