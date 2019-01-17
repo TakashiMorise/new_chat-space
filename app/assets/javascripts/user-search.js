@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function displayUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
@@ -29,11 +29,11 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-     $('#chat-group-users').empty();
+     $('#user-search-result').empty();
      if (data.length !== 0) {
       data.forEach(function(user){
         var html = displayUser(user);
-        $('#chat-group-users').append(html);
+        $('#user-search-result').append(html);
       })
      }
      else {
@@ -45,14 +45,16 @@ $(function(){
       alert('通信に失敗しました');
     });
   });
-  $('#chat-group-users').on('click', '.user-search-add', function(){
+
+  $('#user-search-result').on('click', ".user-search-add", function(){
+    console.log('takashi')
     var userId = $(this).attr('data-user-id');
     var name = $(this).attr('data-user-name');
     $(this).parent().remove();
     var html = addUser(userId, name);
     $('#chat-group-users').append(html);
   });
-  $('#chat-group-users').on('click', '.user-search-remove', function(){
+  $('#chat-group-users').on('click', ".user-search-remove", function(){
     $(this).parent().remove();
   });
 });
