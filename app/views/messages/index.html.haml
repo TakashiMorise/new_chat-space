@@ -9,7 +9,7 @@
         .chat-main__header__group-info.clearfix
           .chat-main__header__group-info__name
             / 現在入っているチャットグループ
-            サンプルチャットグループ
+            = @group.name
           = link_to 'Edit', edit_group_path(@group), class:"chat-main__header__group-info__btn"
         .chat-main__header__menber-info
           Member:
