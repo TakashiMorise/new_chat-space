@@ -47,8 +47,8 @@ $(document).on('turbolinks:load', function(){
   });
 
   $('#user-search-result').on('click', ".user-search-add", function(){
-    var userId = $(this).attr('data-user-id');
-    var name = $(this).attr('data-user-name');
+    var userId = $(this).data('user-id');
+    var name = $(this).data('user-name');
     $(this).parent().remove();
     var html = addUser(userId, name);
     $('#chat-group-users').append(html);
