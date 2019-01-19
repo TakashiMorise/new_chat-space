@@ -20,19 +20,19 @@ $(document).on('turbolinks:load', function(){
   }
   function auto_update() {
     if ($('.chat-main__bulletin-board__messages__message')[0]){
-      var message_id = $('.chat-main__bulletin-board__messages__message:last').data('message-id');
+      var last_message_id = $('.chat-main__bulletin-board__messages__message:last').data('message-id');
     } else {
-      var message_id = 0;
+      var last_message_id = 0;
     }
     $.ajax({
       url: window.location.pathname,
       type: 'GET',
-      data: { id: message_id },
+      data: { id: last_message_id },
       dataType: 'json'
     })
-    .done(function(data) {
-      data.forEach(function(data){
-        var html = buildHTML(data);
+    .done(function(newMessages) {
+      newMessages.forEach(function(newMessage){
+        var html = buildHTML(newMessage);
         $('.chat-main__bulletin-board__messages').append(html);
         $('.chat-main__bulletin-board').animate({scrollTop: $('.chat-main__bulletin-board')[0].scrollHeight}, 'fast');
       });
