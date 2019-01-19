@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function buildHTML(message){
     var imagePresent = "";
     if (message.image) {
@@ -16,33 +16,29 @@ $(function(){
                     ${imagePresent}
                   </div>
                 </div>`
-
     return html;
   }
-
-  $('#new_message').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
+  function auto_update() {
+    if ($('.chat-main__bulletin-board__messages__message')[0]){
+      var last_message_id = $('.chat-main__bulletin-board__messages__message:last').data('message-id');
+    } else {
+      var last_message_id = 0;
+    }
     $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
+      url: window.location.pathname,
+      type: 'GET',
+      data: { id: last_message_id },
+      dataType: 'json'
     })
-    .done(function(data) {
-      var html = buildHTML(data);
-      $('.chat-main__bulletin-board__messages').append(html)
-      $('#new_message')[0].reset();
-      $('.chat-main__bulletin-board').animate({scrollTop: $('.chat-main__bulletin-board')[0].scrollHeight}, 'fast');
-    })
-    .fail(function(){
-      alert('error');
-    })
-    .always(() => {
-      $(".chat-main__footer__form__submit").removeAttr("disabled");
+    .done(function(newMessages) {
+      newMessages.forEach(function(newMessage){
+        var html = buildHTML(newMessage);
+        $('.chat-main__bulletin-board__messages').append(html);
+        $('.chat-main__bulletin-board').animate({scrollTop: $('.chat-main__bulletin-board')[0].scrollHeight}, 'fast');
+      });
     });
-  });
+  }
+  if (location.pathname.match(/\/groups\/\d+\/messages/)){
+    setInterval(auto_update, 5000);
+  }
 });
