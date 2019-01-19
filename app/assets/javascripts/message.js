@@ -4,7 +4,7 @@ $(function(){
     if (message.image) {
       imagePresent = `<img class="lower-message__image" src=${message.image}>`
     }
-    var html = `<div class="chat-main__bulletin-board__messages__message">
+    var html = `<div class="chat-main__bulletin-board__messages__message" data-message-id="${message.message_id}">
                   <div class="chat-main__bulletin-board__messages__message-name">
                     ${message.name}
                   </div>
