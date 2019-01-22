@@ -17,4 +17,4 @@
 .byebug_history
 
 # Githubに画像がコミットされないようにする
-public/uploads/*
+# public/uploads/*
